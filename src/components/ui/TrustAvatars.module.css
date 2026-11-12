@@ -1,0 +1,49 @@
+.trust {
+  width: 212px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 4px;
+  padding-bottom: 5px;
+  overflow: clip;
+}
+.imgs {
+  position: relative;
+  width: 108px;
+  height: 40px;
+  flex: none;
+}
+.avatar {
+  position: absolute;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 32px;
+  overflow: clip;
+}
+.avatar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--c-divider-dark);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.img {
+  object-fit: cover;
+  border-radius: 32px;
+}
+.textWrap {
+  width: 100%;
+}
+.text {
+  text-align: right;
+  color: var(--c-gray);
+}
+.light .avatar::after {
+  border-color: var(--c-line);
+}
+.light .text {
+  color: var(--c-body);
+}

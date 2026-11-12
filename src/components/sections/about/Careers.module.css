@@ -1,0 +1,160 @@
+.section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 132px 0;
+  background: var(--c-black);
+  overflow: hidden;
+  scroll-margin-top: 0;
+}
+.wrapper {
+  max-width: 1440px; /* content is capped & centred on wide screens */
+  width: 100%;
+  padding: 0 var(--page-pad);
+}
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+.title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.label,
+.heading {
+  flex: 1 0 0;
+}
+.heading {
+  color: var(--c-white);
+}
+
+.list {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.list::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom: 1px solid var(--c-divider-dark);
+  pointer-events: none;
+}
+.job {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+}
+.job::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid var(--c-divider-dark);
+  pointer-events: none;
+}
+.jobTitle {
+  flex: 1 0 0;
+}
+.jobLink {
+  color: var(--c-white);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s var(--ease-link);
+}
+.jobLink:hover {
+  text-decoration-color: var(--c-white);
+}
+.details {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+.data {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+.meta {
+  flex: 1 0 0;
+  color: var(--c-gray);
+}
+.button {
+  flex: 1 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1279px) {
+  .section {
+    padding: 96px 0;
+  }
+  .content {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 809px) {
+  .section {
+    padding: 64px 0;
+  }
+  .wrapper {
+    padding: 0 16px;
+  }
+  .content {
+    gap: 40px;
+  }
+  .title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .label,
+  .heading {
+    flex: none;
+    width: 100%;
+  }
+  .job {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+  }
+  .jobTitle {
+    flex: none;
+  }
+  .details {
+    flex: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+  .data {
+    flex: none;
+    width: 100%;
+  }
+  .button {
+    flex: none;
+    justify-content: flex-start;
+  }
+  .button > * {
+    width: 100%;
+  }
+}

@@ -1,0 +1,121 @@
+/* Small additions for the Hirani-only pages (reviews, FAQs, service areas, practice categories).
+   Layout comes from the existing template modules; these only cover elements the template lacks. */
+
+/* hero subtitle under the PageHero title */
+.heroText {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--c-gray);
+  text-align: center;
+}
+
+/* review card: stars + date in place of the value icon */
+.reviewMeta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+.stars {
+  display: flex;
+  gap: 2px;
+  color: var(--c-accent);
+}
+.when {
+  color: var(--c-body);
+}
+
+/* intro paragraphs on practice category pages */
+.intro {
+  width: 100%;
+  max-width: 880px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--c-body);
+}
+.intro a {
+  color: var(--c-heading);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* sidebar contact rows (service areas) */
+.contactRows {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--c-body);
+}
+.contactRows a {
+  color: var(--c-heading);
+}
+.contactLabel {
+  color: var(--c-heading);
+  font-weight: 500;
+}
+
+/* FAQ sidebar group label */
+.groupLabel {
+  color: var(--c-heading);
+  font-weight: 500;
+}
+
+/* county map (Google Maps embed) */
+.map {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: var(--c-light);
+}
+
+.anchor {
+  scroll-margin-top: 120px;
+}
+
+/* review cards start at the top so names line up across a row */
+.cardTop {
+  justify-content: flex-start;
+}
+
+/* Google mark (pushed to the card's right edge) and verified tick on review cards */
+.reviewMeta {
+  width: 100%;
+}
+.google {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin-left: auto;
+}
+.verified {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+/* contact page: directions link, hours rows, wide map */
+.directions {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--c-heading);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.hoursRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.mapWide {
+  aspect-ratio: auto;
+  height: 480px;
+}
+@media (max-width: 809px) {
+  .mapWide {
+    height: 320px;
+  }
+}

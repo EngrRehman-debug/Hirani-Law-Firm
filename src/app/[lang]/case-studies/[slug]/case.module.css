@@ -1,0 +1,279 @@
+/* Hero ------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--c-black);
+  overflow: clip;
+}
+.heroBg {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+}
+.heroImg {
+  object-fit: cover;
+}
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: var(--c-black);
+  opacity: 0.25;
+  mix-blend-mode: darken;
+}
+.heroGradient {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, var(--c-ink) 0%, rgba(18, 18, 18, 0) 66.0174%);
+  opacity: 0.85;
+  mix-blend-mode: darken;
+}
+.heroInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 150px var(--page-pad) 48px;
+}
+.card {
+  position: relative;
+  width: 448px;
+  display: flex;
+  flex-direction: column;
+  gap: 124px;
+  padding: 48px 40px 40px;
+  background: var(--c-heading);
+  border-radius: 2px;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 8px solid var(--c-line-25);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.cardTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.tags {
+  display: flex;
+  gap: 4px;
+}
+.tag {
+  display: block;
+  padding: 4px 6px;
+  line-height: 15px;
+  background: var(--c-accent);
+  color: var(--c-white);
+}
+.verdict {
+  background: var(--c-red);
+}
+.cardHeading {
+  color: var(--c-white);
+}
+.cardDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.divider {
+  height: 1px;
+  background: var(--c-divider-dark);
+}
+.cardText {
+  color: var(--c-gray);
+}
+
+/* Body -------------------------------------------------------------------- */
+.body {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 120px 0 0;
+  background: var(--c-white);
+  overflow: hidden;
+}
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  padding: 0 var(--page-pad);
+  overflow: hidden;
+}
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.label,
+.rowContent {
+  flex: 1 0 0;
+}
+.rowContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.rowHeading {
+  color: var(--c-black);
+}
+.rowText {
+  color: var(--c-body);
+}
+.strategy {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 56px;
+}
+.images {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow: hidden;
+}
+
+/* More cases ------------------------------------------------------------- */
+.more {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 120px 0 132px;
+  background: var(--c-white);
+  overflow: hidden;
+}
+.moreWrapper {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 0 var(--page-pad);
+}
+.moreHeading {
+  color: var(--c-heading);
+}
+.moreGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+@media (max-width: 1279px) {
+  .heroInner {
+    padding: 116px 40px 40px;
+  }
+  .card {
+    width: 384px;
+    gap: 80px;
+    padding: 40px 32px 32px;
+  }
+  .body {
+    padding: 80px 0 0;
+  }
+  .wrapper {
+    gap: 48px;
+  }
+  .more {
+    padding: 80px 0 96px;
+  }
+  .moreWrapper {
+    gap: 32px;
+  }
+  .moreGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+  /* the original shows only two related cases on tablet */
+  .moreCell:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (max-width: 809px) {
+  .heroInner {
+    padding: 96px var(--page-pad) 20px;
+  }
+  .card {
+    width: 100%;
+    gap: 40px;
+    padding: 24px 20px 20px;
+  }
+  .cardTitle {
+    gap: 12px;
+  }
+  .cardDescription {
+    gap: 16px;
+  }
+  .cardText {
+    font-size: 14px;
+  }
+  .tag {
+    font-size: 10px;
+  }
+  .body {
+    padding: 56px 0 0;
+  }
+  .wrapper {
+    gap: 32px;
+  }
+  .row {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .label,
+  .rowContent {
+    flex: none;
+    width: 100%;
+  }
+  .strategy {
+    gap: 32px;
+  }
+  .images {
+    width: 100%;
+    gap: 20px;
+  }
+  .more {
+    padding: 40px 0 64px;
+  }
+  .moreWrapper {
+    gap: 24px;
+  }
+  .moreGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .moreCell:nth-child(3) {
+    display: block;
+  }
+}
+
+/* related cards fill the row height so their bottoms line up */
+.moreCell {
+  display: flex;
+}
+.moreCell > * {
+  flex: 1;
+}

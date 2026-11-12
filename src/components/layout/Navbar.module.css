@@ -1,0 +1,448 @@
+.shell {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.hidden {
+  transform: translateY(-100%);
+}
+
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 24px 0;
+  overflow: hidden;
+  transition:
+    background-color 0.4s cubic-bezier(0.44, 0, 0.56, 1),
+    height 0.5s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.transparent {
+  background-color: rgba(255, 255, 255, 0);
+}
+.light {
+  background-color: var(--c-white);
+}
+/* 1px divider along the bottom edge (25% line on the transparent bar, solid line on white) */
+.nav::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom: 1px solid var(--c-line-25);
+  pointer-events: none;
+  transition: border-color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.light::after {
+  border-bottom-color: var(--c-line);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 var(--page-pad);
+}
+
+.logo {
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.logoLink {
+  display: flex;
+  width: 105px;
+  height: 28px;
+}
+.logoLink img {
+  width: 105px;
+  height: 28px;
+  object-fit: cover;
+}
+
+.links {
+  flex: 2 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.cta {
+  flex: 1 0 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.burger,
+.mobileMenu {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Tablet & phone: hamburger + full-screen menu
+   -------------------------------------------------------------------------- */
+@media (max-width: 1279px) {
+  .nav {
+    /* menu panel grows/shrinks on the original's spring (critically damped, ~0.63s) */
+    --menu-spring: linear(0, 0.0331, 0.1103, 0.208, 0.3114, 0.4119, 0.5045, 0.5872, 0.6592, 0.7207, 0.7726, 0.8158, 0.8515, 0.8808, 0.9047, 0.924, 0.9396, 0.9521, 0.9621, 0.9701, 0.9765, 0.9815, 0.9855, 0.9886, 0.9911, 0.993, 0.9946, 0.9958, 0.9967, 0.9974, 1);
+    height: 76px;
+    padding: 0;
+    align-items: flex-start;
+    transition:
+      background-color 0.63s var(--menu-spring),
+      height 0.63s var(--menu-spring);
+  }
+  .open {
+    height: 100vh;
+    height: 100dvh;
+    background-color: var(--c-black);
+  }
+
+  .wrapper {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* laid out at full screen height so the links never move while the panel grows (it clips them) */
+    height: 100vh;
+    height: 100dvh;
+    flex: none;
+    padding: 24px var(--page-pad);
+  }
+  .logo {
+    flex: none;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .links,
+  .cta {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+    position: relative;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    flex: none;
+  }
+  .bar {
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    height: 2px;
+    background: var(--c-gray);
+    /* hamburger <-> close morph: bouncy spring measured on the original (~0.55s, ~10% overshoot, ~70ms lag) */
+    --icon-spring: linear(0, 0.026, 0.0942, 0.191, 0.3045, 0.4252, 0.5452, 0.6588, 0.7618, 0.8517, 0.9272, 0.988, 1.0347, 1.0683, 1.0904, 1.1026, 1.1068, 1.1046, 1.0978, 1.0877, 1.0757, 1.0629, 1.05, 1.0378, 1.0266, 1.0169, 1.0086, 1.002, 0.9968, 0.9931, 0.9906, 0.9891, 0.9886, 0.9888, 0.9895, 0.9905, 0.9918, 0.9931, 0.9945, 0.9958, 1);
+    transition:
+      transform 0.55s var(--icon-spring) 0.03s,
+      top 0.55s var(--icon-spring) 0.03s;
+  }
+  .open .bar {
+    transition-delay: 0.07s;
+  }
+  .bar:nth-child(1) {
+    top: 6px;
+  }
+  .bar:nth-child(2) {
+    top: 13px;
+  }
+  .bar:nth-child(3) {
+    top: 20px;
+  }
+  .light .bar {
+    background: var(--c-black);
+  }
+  .open .bar:nth-child(1) {
+    top: 13px;
+    transform: rotate(-45deg);
+  }
+  .open .bar:nth-child(2) {
+    top: 13px;
+    transform: rotate(-45deg);
+  }
+  .open .bar:nth-child(3) {
+    top: 13px;
+    transform: rotate(45deg);
+  }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    width: 100%;
+    /* closing hides the menu content at once while the panel collapses (as on the original) */
+    visibility: hidden;
+  }
+  .open .mobileMenu {
+    visibility: visible;
+    transition: visibility 0s;
+  }
+
+  /* links sit centred between the logo row and the CTA card (original: space-between of the three) */
+  .mobileLinks {
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .mobileLink {
+    font-family: var(--font-fraunces), "Fraunces", serif;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    color: var(--c-gray);
+    text-decoration: none;
+    transition: color 0.2s var(--ease-link);
+  }
+  /* hover: links brighten to 80% white (no underline, current page not marked) */
+  @media (hover: hover) {
+    .mobileLink:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .mobileCta {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+    background-image: linear-gradient(rgba(31, 31, 21, 0) 0.45%, rgba(136, 134, 90, 0.5) 100%);
+    backdrop-filter: blur(10px);
+  }
+  .mobileCta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--c-line-25);
+    pointer-events: none;
+  }
+  .mobileCtaTitle {
+    width: 100%;
+    font-family: var(--font-fraunces), "Fraunces", serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    color: var(--c-white);
+  }
+  .mobileCtaText {
+    font-size: 14px;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--c-gray);
+  }
+}
+
+/* Tablet open menu (810–1279): 20px gutters, larger links and CTA copy */
+@media (min-width: 810px) and (max-width: 1279px) {
+  .open .wrapper {
+    padding: 24px 20px;
+  }
+  .mobileLink {
+    font-size: 36px;
+  }
+  .mobileCtaTitle {
+    font-size: 22px;
+  }
+  .mobileCtaText {
+    font-size: 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Language switch (EN / ES) — desktop: before the CTA, tablet/phone: between logo and menu button
+   -------------------------------------------------------------------------- */
+.cta {
+  gap: 24px;
+}
+.langSwitch {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.logo .langMobile {
+  display: none;
+}
+@media (max-width: 1279px) {
+  .logo .langMobile {
+    display: inline;
+  }
+  .open .logo .langMobile {
+    color: var(--c-white);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Dropdowns (About / Practice Areas / Reviews), as on the original header
+   -------------------------------------------------------------------------- */
+@media (min-width: 1280px) {
+  /* let the dropdown panels hang below the bar */
+  .nav {
+    overflow: visible;
+  }
+}
+.hasMenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.chevron {
+  flex: none;
+  /* the icon path sits in the middle of a 34px box: trim the empty space around it */
+  margin: -6px -10px -6px -10px;
+  transition: transform 0.3s var(--ease-link);
+}
+.chevronOnDark {
+  color: var(--c-white);
+}
+.chevronOnLight {
+  color: var(--c-dark);
+}
+.hasMenu:hover .chevron,
+.hasMenu:focus-within .chevron {
+  transform: rotate(180deg);
+}
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: -24px;
+  padding-top: 18px; /* hover bridge between the link and the panel */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition:
+    opacity 0.25s var(--ease-link),
+    transform 0.25s var(--ease-link),
+    visibility 0s linear 0.25s;
+}
+.hasMenu:hover .dropdown,
+.hasMenu:focus-within .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    opacity 0.25s var(--ease-link),
+    transform 0.25s var(--ease-link),
+    visibility 0s;
+}
+.dropdownList {
+  position: relative;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 24px;
+  background: var(--c-white);
+  box-shadow: 0 12px 32px rgba(31, 31, 21, 0.14);
+  white-space: nowrap;
+}
+.dropdownList::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  border-top: 3px solid var(--c-accent);
+  pointer-events: none;
+}
+
+/* mobile menu: accordion — the arrow opens a parent's pages, the label navigates */
+.mobileRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.mobileToggle {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  margin: 0 -8px 0 0;
+  overflow: visible;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--c-gray);
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-link);
+}
+.mobileToggleOpen {
+  transform: rotate(180deg);
+}
+.mobileSubLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0 6px;
+  padding-left: 16px;
+  border-left: 1px solid var(--c-line-25);
+}
+.mobileSubLink {
+  font-size: 16px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--c-gray);
+  opacity: 0.8;
+  text-decoration: none;
+  transition: opacity 0.2s var(--ease-link);
+}
+@media (hover: hover) {
+  .mobileSubLink:hover {
+    opacity: 1;
+  }
+}
+
+/* after a dropdown link is clicked the panel stays shut until the pointer leaves the item */
+.hasMenu.menuClosed .dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+}
+.hasMenu.menuClosed .chevron {
+  transform: none;
+}
+
+/* open menu scrolls when expanded sub-links make it taller than the screen */
+@media (max-width: 1279px) {
+  .mobileMenu {
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    gap: 24px;
+    margin-top: 16px;
+  }
+  .mobileLinks,
+  .mobileCta {
+    flex-shrink: 0;
+  }
+}
+
+/* 7 links (with Case Studies) on narrow desktops: slightly tighter spacing so "Contact" keeps clear of "ES" */
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .links {
+    gap: 18px;
+  }
+}

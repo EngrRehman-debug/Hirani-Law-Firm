@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Hirani Law Firm Blog</title>
+    <link>https://www.hiranilawfirm.com/blog</link>
+    <atom:link href="https://www.hiranilawfirm.com/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Practical legal guides from Hirani Law Firm on Texas divorce, child custody, property division, and car accident claims. Serving Houston, Katy, and Fort Bend County.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Sep 2026 14:00:00 GMT</lastBuildDate>
+    <item>
+      <title>12 Factors Texas Judges Consider in Child Custody Cases</title>
+      <link>https://www.hiranilawfirm.com/blog/texas-child-custody-factors</link>
+      <guid isPermaLink="true">https://www.hiranilawfirm.com/blog/texas-child-custody-factors</guid>
+      <description>Facing a custody hearing in Texas? Learn the 12 factors judges weigh, the difference between conservatorship and possession, and how to prepare. Free confidential consultation.</description>
+      <category>Family Law</category>
+      <dc:creator>Sehar Hirani</dc:creator>
+      <pubDate>Fri, 25 Sep 2026 14:00:00 GMT</pubDate>
+      <media:content url="https://www.hiranilawfirm.com/og/blog/texas-child-custody-factors.jpg" medium="image" type="image/jpeg" width="1200" height="630" />
+    </item>
+    <item>
+      <title>Getting Divorced in Texas? Here's How Property and Debt Get Divided</title>
+      <link>https://www.hiranilawfirm.com/blog/texas-divorce-property-division</link>
+      <guid isPermaLink="true">https://www.hiranilawfirm.com/blog/texas-divorce-property-division</guid>
+      <description>Texas is a community property state — here's what that means for your assets, debts, and what might be protected in a divorce. Free consultation with a family law attorney.</description>
+      <category>Family Law</category>
+      <dc:creator>Sehar Hirani</dc:creator>
+      <pubDate>Fri, 25 Sep 2026 14:00:00 GMT</pubDate>
+      <media:content url="https://www.hiranilawfirm.com/og/blog/texas-divorce-property-division.jpg" medium="image" type="image/jpeg" width="1200" height="630" />
+    </item>
+    <item>
+      <title>Injured in a Car Accident in Texas? Here's What to Do in the First 72 Hours</title>
+      <link>https://www.hiranilawfirm.com/blog/car-accident-texas-what-to-do</link>
+      <guid isPermaLink="true">https://www.hiranilawfirm.com/blog/car-accident-texas-what-to-do</guid>
+      <description>Been in a car accident in Texas? Learn the 4 critical steps to take in the first 72 hours to protect your health and your legal claim. Free consultation, no fees unless we win.</description>
+      <category>Personal Injury</category>
+      <dc:creator>Sehar Hirani</dc:creator>
+      <pubDate>Fri, 25 Sep 2026 14:00:00 GMT</pubDate>
+      <media:content url="https://www.hiranilawfirm.com/og/blog/car-accident-texas-what-to-do.jpg" medium="image" type="image/jpeg" width="1200" height="630" />
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,212 @@
+.white {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--c-white);
+  overflow: hidden;
+}
+.areas {
+  padding: 132px 0;
+}
+.founder {
+  padding: 0 0 132px;
+}
+.wrapper,
+.founderWrapper {
+  max-width: 1440px; /* content is capped & centred on wide screens */
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 var(--page-pad);
+}
+.wrapper {
+  gap: 64px;
+}
+.founderWrapper {
+  gap: 120px;
+}
+
+.titleRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.title {
+  width: 624px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.heading {
+  color: var(--c-heading);
+}
+
+.areasCta {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+.cell {
+  height: 465px;
+  display: flex;
+}
+
+.ctaRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  overflow: clip;
+}
+.ctaSpacer {
+  flex: 1 0 0;
+  height: 100px;
+}
+.cta {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  overflow: clip;
+}
+.ctaText {
+  max-width: 640px;
+  color: var(--c-body);
+}
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.testimonials {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (max-width: 1279px) {
+  .areas {
+    padding: 96px 0;
+  }
+  .founder {
+    padding: 0 0 96px;
+  }
+  .wrapper,
+  .founderWrapper {
+    gap: 48px;
+  }
+  .founderWrapper {
+    gap: 80px;
+  }
+  .title {
+    gap: 8px;
+  }
+  .areasCta {
+    gap: 32px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 28px;
+  }
+  .cell {
+    height: auto;
+    align-self: start;
+  }
+  .ctaSpacer {
+    display: none;
+  }
+}
+
+@media (max-width: 809px) {
+  .areas {
+    padding: 64px 0;
+  }
+  .founder {
+    padding: 0 0 64px;
+  }
+  .wrapper {
+    gap: 40px;
+  }
+  .founderWrapper {
+    gap: 56px;
+  }
+  .titleRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .title {
+    width: 100%;
+    gap: 4px;
+  }
+  .trust {
+    display: none;
+  }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: 1fr; /* every row takes the tallest card's height, like the original */
+    gap: 20px;
+  }
+  .areasCta {
+    gap: 24px;
+  }
+  .cta {
+    gap: 24px;
+  }
+  .ctaButtons {
+    gap: 12px;
+  }
+}
+
+/* Grouped grid: a heading row per practice (family law, then personal injury) */
+.group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.group + .group {
+  margin-top: 64px;
+}
+.groupHead {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+.groupText {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (max-width: 809px) {
+  .groupHead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .group + .group {
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,285 @@
+.block {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+.spacious {
+  gap: 120px;
+}
+
+.titleRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.title {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.heading {
+  color: var(--c-heading);
+}
+
+.features {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.card {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 40px;
+  background: var(--c-white);
+  transition: background-color var(--spring-hover-dur) var(--spring-hover);
+}
+/* hover (desktop variant only): card tints to the light panel colour */
+@media (hover: hover) and (min-width: 1280px) {
+  .card:hover {
+    background: var(--c-light);
+  }
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 0 solid var(--c-line);
+  border-top-width: 1px;
+  pointer-events: none;
+}
+/* outer columns lose their outer padding; inner borders separate the columns */
+.cell:nth-child(3n + 1) .card {
+  padding-left: 0;
+}
+.cell:nth-child(3n + 1) .card::after {
+  border-right-width: 1px;
+}
+.cell:nth-child(3n) .card {
+  padding-right: 0;
+}
+.cell:nth-child(3n) .card::after {
+  border-left-width: 1px;
+}
+.cell:nth-child(n + 4) .card::after {
+  border-bottom-width: 1px;
+}
+
+.icon {
+  flex: none;
+  color: var(--c-accent);
+}
+.cardText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cardTitle {
+  color: var(--c-heading);
+}
+.cardBody {
+  color: var(--c-body);
+}
+
+.ctaRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.ctaSpacer {
+  flex: 1 0 0;
+  height: 100px;
+}
+.cta {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+.ctaText {
+  max-width: 640px;
+  color: var(--c-body);
+}
+.ctaButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.lady {
+  position: absolute;
+  top: -40px;
+  right: calc(var(--page-pad) * -1);
+  width: 448px;
+  aspect-ratio: 0.926459 / 1;
+  z-index: -1;
+}
+.ladyInset {
+  top: 0;
+  right: calc(var(--page-pad) * -1);
+}
+.ladyImg {
+  object-fit: cover;
+}
+
+@media (max-width: 1279px) {
+  .block,
+  .spacious {
+    gap: 48px;
+  }
+  .title {
+    width: 65%;
+    gap: 8px;
+  }
+  .features {
+    gap: 32px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .card {
+    gap: 16px;
+    padding: 28px;
+  }
+  /* tablet: same padding/border pattern as the original (2 columns) */
+  .cell:nth-child(n) .card {
+    padding: 28px;
+  }
+  .cell:nth-child(1) .card {
+    padding-left: 0;
+  }
+  .cell:nth-child(3) .card,
+  .cell:nth-child(6) .card {
+    padding-right: 0;
+  }
+  .cell:nth-child(n) .card::after {
+    border-width: 1px 0 0 0;
+  }
+  .cell:nth-child(1) .card::after,
+  .cell:nth-child(3) .card::after {
+    border-width: 1px 1px 0 0;
+  }
+  .cell:nth-child(5) .card::after {
+    border-width: 1px 1px 1px 0;
+  }
+  .cell:nth-child(6) .card::after {
+    border-width: 1px 0 1px 0;
+  }
+  .cardText {
+    gap: 10px;
+  }
+  .cardTitle {
+    font-size: 22px;
+    letter-spacing: -0.05em;
+  }
+  .lady {
+    width: 276px;
+    top: -32px;
+  }
+  .ladyInset {
+    top: 0;
+    right: -40px;
+  }
+  .spacious .cell:nth-child(1) .card {
+    padding-left: 28px;
+    padding-right: 0;
+  }
+  .ctaSpacer {
+    display: none;
+  }
+}
+
+@media (max-width: 809px) {
+  .block,
+  .spacious {
+    gap: 40px;
+  }
+  .title {
+    width: 100%;
+    gap: 4px;
+  }
+  .features {
+    gap: 24px;
+  }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cell:nth-child(n) .card,
+  .spacious .cell:nth-child(n) .card {
+    padding: 20px 0;
+  }
+  .cell:nth-child(n) .card::after {
+    border-width: 1px 0 0 0 !important;
+  }
+  .cell:last-child .card::after {
+    border-bottom-width: 1px !important;
+  }
+  .cardTitle {
+    font-size: 18px;
+    line-height: 1.1;
+  }
+  .ctaSpacer {
+    display: none;
+  }
+  .cardBody {
+    font-size: 14px;
+  }
+  .cta {
+    gap: 16px;
+  }
+  .ctaButtons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .lady {
+    display: none;
+  }
+}
+
+/* 2-column variant (4 cards, e.g. "Why Hirani Law Firm" on Contact) — desktop only; tablet is 2 columns already */
+@media (min-width: 1280px) {
+  .twoCol .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .twoCol .cell:nth-child(n) .card {
+    padding: 40px;
+  }
+  .twoCol .cell:nth-child(n) .card::after {
+    border-width: 1px 0 0 0;
+  }
+  .twoCol .cell:nth-child(2n + 1) .card {
+    padding-left: 0;
+  }
+  .twoCol .cell:nth-child(2n + 1) .card::after {
+    border-right-width: 1px;
+  }
+  .twoCol .cell:nth-child(2n) .card {
+    padding-right: 0;
+  }
+  .twoCol .cell:nth-child(n + 3) .card::after {
+    border-bottom-width: 1px;
+  }
+}

@@ -1,0 +1,165 @@
+.section {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 132px 0;
+  overflow: clip;
+}
+.wrapper {
+  max-width: 1440px; /* content is capped & centred on wide screens */
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--page-pad);
+}
+.contacts {
+  width: 100%;
+  max-width: 1216px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  overflow: clip;
+}
+.textCta {
+  flex: 499 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: clip;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.heading {
+  color: var(--c-white);
+}
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.para {
+  color: var(--c-gray);
+}
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.chips {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  overflow: clip;
+}
+.spacer {
+  flex: 122 0 0;
+}
+.form {
+  flex: 595 0 0;
+  display: flex;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: clip;
+}
+.bgImg {
+  object-fit: cover;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--c-black);
+  opacity: 0.8;
+  mix-blend-mode: darken;
+}
+.gradient {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, var(--c-ink) 0%, rgba(18, 18, 18, 0) 66.0174%);
+  opacity: 0.85;
+  mix-blend-mode: darken;
+}
+
+@media (max-width: 1279px) {
+  .section {
+    padding: 96px 0;
+  }
+  .textCta {
+    flex: 419 0 0;
+    justify-content: flex-start;
+    gap: 48px;
+  }
+  .title {
+    gap: 8px;
+  }
+  .chips {
+    gap: 12px;
+  }
+  .spacer {
+    flex: 58 0 0;
+  }
+  .form {
+    flex: 483 0 0;
+  }
+}
+
+@media (max-width: 809px) {
+  .section {
+    padding: 64px 0;
+  }
+  .contacts {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .textCta {
+    flex: none;
+    gap: 32px;
+  }
+  .text {
+    gap: 16px;
+  }
+  .title {
+    gap: 12px;
+  }
+  .intro {
+    gap: 16px;
+  }
+  .contactInfo {
+    gap: 12px;
+  }
+  .chips {
+    gap: 16px;
+  }
+  .spacer {
+    display: none;
+  }
+  .form {
+    flex: none;
+  }
+}
+
+/* phones: email + phone wrap instead of being clipped */
+@media (max-width: 809px) {
+  .chips {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+}

@@ -1,0 +1,231 @@
+.hero {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--c-black);
+  display: flex;
+}
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: clip;
+  will-change: transform;
+}
+.bgScroll {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+.bgImg {
+  object-fit: cover;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--c-black);
+  opacity: 0.25;
+  mix-blend-mode: darken;
+}
+.gradient {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, var(--c-ink) 0%, rgba(18, 18, 18, 0) 66.0174%);
+  opacity: 0.85;
+  mix-blend-mode: darken;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 172px var(--page-pad) 48px;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1 0 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.headline {
+  width: 648px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+.title {
+  color: var(--c-white);
+}
+.lead {
+  color: var(--c-gray);
+}
+.ctas {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-top: 16px;
+  overflow: hidden;
+}
+
+.moving {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  overflow: clip;
+}
+.movingText {
+  width: 100%;
+  overflow: clip;
+}
+.tagline {
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--c-white);
+}
+
+.data {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  overflow: clip;
+}
+.links {
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 21px;
+  overflow: hidden;
+}
+.spacer {
+  flex: 1 0 0;
+}
+.right {
+  flex: 2 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.note {
+  width: 320px;
+  color: var(--c-gray);
+}
+.scroll {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.scrollText {
+  color: var(--c-white);
+}
+.scrollIconBox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.scrollIcon {
+  position: absolute;
+  inset: -7px;
+  display: block;
+  color: var(--c-white);
+}
+
+/* Tablet ------------------------------------------------------------------ */
+@media (max-width: 1279px) {
+  .inner {
+    padding: 148px var(--page-pad) 40px;
+  }
+  .headline {
+    width: 560px;
+  }
+  .tagline {
+    font-size: 18px;
+  }
+  .spacer,
+  .scroll {
+    display: none;
+  }
+  .links {
+    flex: 1 0 0;
+  }
+  .right {
+    flex: 1 0 0;
+    justify-content: flex-end;
+  }
+}
+
+/* Phone ------------------------------------------------------------------- */
+@media (max-width: 809px) {
+  .inner {
+    padding: 140px var(--page-pad) 24px;
+  }
+  .headline {
+    width: 100%;
+  }
+  .lead {
+    font-size: 16px;
+  }
+  .ctas {
+    gap: 10px;
+  }
+  .moving {
+    gap: 16px;
+  }
+  .tagline {
+    font-size: 16px;
+  }
+  .data {
+    flex-direction: column;
+    padding-top: 6px;
+  }
+  .links {
+    display: none;
+  }
+  .right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .note {
+    font-size: 14px;
+  }
+}
+
+/* Phones: shorter button labels so both CTAs stay on one line */
+.labelShort {
+  display: none;
+}
+@media (max-width: 809px) {
+  .labelFull {
+    display: none;
+  }
+  .labelShort {
+    display: inline;
+  }
+}

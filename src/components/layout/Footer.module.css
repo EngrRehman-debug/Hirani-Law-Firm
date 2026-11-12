@@ -1,0 +1,311 @@
+.footer {
+  position: relative;
+  width: 100%;
+  background-color: var(--c-black);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 132px var(--page-pad) 32px;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 176px;
+}
+
+.newsletterCol {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.newsletter {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--c-gray);
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+.field {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 12px 12px 12px 0;
+}
+.field::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom: 1px solid var(--c-divider-dark);
+  pointer-events: none;
+}
+.input {
+  width: 100%;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--c-white);
+  font-size: 16px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.input::placeholder {
+  color: rgba(226, 226, 226, 0.5);
+}
+.submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0 12px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--c-white);
+  cursor: pointer;
+}
+
+.note {
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--c-gray);
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--c-white);
+}
+.socialIcon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.links {
+  flex: 1 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  row-gap: 80px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+  overflow: hidden;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.list li {
+  display: block;
+  height: 18px;
+  line-height: 18px;
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 96px;
+  overflow: clip;
+}
+.logoInner {
+  width: 100%;
+}
+.wordmark {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.wordmarkText {
+  font-family: var(--font-fraunces), "Fraunces", serif;
+  font-size: 280px;
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--c-white);
+  white-space: nowrap;
+}
+
+.copy {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.copyRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.copyLeft,
+.copyRight {
+  flex: 1 0 0;
+  font-size: 16px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.copyLeft {
+  color: var(--c-white);
+}
+.copyRight {
+  color: var(--c-gray);
+  text-align: right;
+}
+.byLink {
+  text-decoration: underline;
+}
+
+/* Tablet ------------------------------------------------------------------ */
+@media (max-width: 1279px) {
+  .wrapper {
+    padding: 96px var(--page-pad) 32px;
+  }
+  .content {
+    flex-direction: column;
+    gap: 80px;
+  }
+  .newsletterCol {
+    flex: none;
+    width: 100%;
+    gap: 32px;
+  }
+  .newsletter {
+    width: 60%;
+  }
+  .title {
+    font-size: 18px;
+  }
+  .links {
+    flex: none;
+    width: 100%;
+  }
+  .logo {
+    padding: 64px 0 12px;
+  }
+}
+
+/* Phone ------------------------------------------------------------------- */
+@media (max-width: 809px) {
+  .wrapper {
+    padding: 64px var(--page-pad) 20px;
+  }
+  .content {
+    gap: 56px;
+  }
+  .newsletterCol {
+    gap: 20px;
+  }
+  .newsletter {
+    width: 100%;
+    gap: 16px;
+  }
+  .title {
+    font-size: 16px;
+  }
+  .note {
+    font-size: 12px;
+  }
+  .links {
+    /* the original's 2nd column always starts 175px in */
+    grid-template-columns: 175px minmax(0, 1fr);
+    align-items: start;
+    row-gap: 56px;
+  }
+  .column {
+    gap: 16px;
+  }
+  .links > :nth-child(2) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+  .links > :nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .logo {
+    padding: 56px 0 12px;
+  }
+  .copy {
+    gap: 16px;
+  }
+  .copyRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .copyLeft,
+  .copyRight {
+    flex: none;
+    width: 100%;
+    font-size: 14px;
+    text-align: left;
+  }
+}
+
+/* Hirani additions: social icons are links, "Cookie Settings" is a text button */
+a.socialIcon {
+  color: inherit;
+}
+button.byLink {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+}
+
+/* email + phone under the newsletter (wrap on narrow screens) */
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}

@@ -1,0 +1,129 @@
+/* Cookie consent banner — layout from the original site, colors/type from this template. */
+.banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1060;
+  max-width: 1340px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  background: var(--c-black);
+  border: 1px solid var(--c-line-25);
+  border-top: 3px solid var(--c-accent);
+  color: var(--c-gray);
+  box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.7);
+}
+.isSettings {
+  max-width: 1340px;
+  align-items: flex-end;
+}
+.content {
+  flex: 1;
+  min-width: 0;
+}
+.title {
+  margin: 0 0 8px;
+  color: var(--c-white);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.text a,
+.policyNote a {
+  color: var(--c-white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.actions {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.customize {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--c-gray);
+  font: inherit;
+  font-size: 14px;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.customize:hover {
+  color: var(--c-white);
+}
+.settings {
+  margin-top: 12px;
+}
+.settings > .text {
+  margin-bottom: 12px;
+}
+.category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--c-line-25);
+  color: var(--c-white);
+}
+.category div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.category strong {
+  font-size: 15px;
+  font-weight: 500;
+}
+.category small {
+  color: var(--c-gray);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.category input {
+  flex-shrink: 0;
+  width: 40px;
+  height: 20px;
+  accent-color: var(--c-accent);
+}
+.always {
+  color: var(--c-accent);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.policyNote {
+  margin: 10px 0 0;
+  color: var(--c-gray);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+@media (max-width: 575px) {
+  .banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    text-align: center;
+  }
+  .actions {
+    justify-content: center;
+  }
+  .category {
+    text-align: left;
+  }
+}

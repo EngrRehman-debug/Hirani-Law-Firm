@@ -1,0 +1,29 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  flex: none;
+}
+
+.wrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -5%;
+  width: 110%;
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  height: 1px;
+  flex: none;
+}
+
+.light {
+  background-color: var(--c-line-25);
+}
+.dark {
+  background-color: var(--c-line);
+}

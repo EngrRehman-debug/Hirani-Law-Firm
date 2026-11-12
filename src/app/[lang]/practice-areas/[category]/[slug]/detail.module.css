@@ -1,0 +1,187 @@
+.section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 132px 0;
+  background: var(--c-white);
+  overflow: clip; /* clip (not hidden) so the sidebar can be sticky */
+}
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 var(--page-pad);
+  overflow: clip;
+}
+.sidebar {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  overflow: clip;
+}
+.links {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 40px 32px 32px;
+  background: var(--c-light);
+  overflow: hidden;
+}
+.links::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 8px solid var(--c-accent);
+  pointer-events: none;
+}
+.linksTitle {
+  color: var(--c-accent);
+}
+.linkList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.linkList li {
+  height: 18px;
+  line-height: 18px;
+}
+.spacer {
+  flex: 1 0 0;
+}
+.content {
+  flex: 2 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  overflow: hidden;
+}
+.overview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.overviewText {
+  color: var(--c-black);
+}
+.block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.blockTitle {
+  color: var(--c-heading);
+}
+.rich {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--c-body);
+}
+/* the CMS paragraph before the list ends with an empty line */
+.approach > p:nth-last-child(2) {
+  padding-bottom: 1.3em;
+}
+.steps {
+  list-style: decimal;
+  font-size: 18px;
+  line-height: 1.3;
+  padding-left: 1.368em;
+  margin: -20px 0 0;
+}
+
+@media (max-width: 1279px) {
+  .section {
+    padding: 96px 0;
+  }
+  /* original tablet row: sidebar ≤35%, spacer ≤15%, content takes the rest */
+  .sidebar {
+    flex: 1 0 0;
+    max-width: 35%;
+    gap: 32px;
+  }
+  .links {
+    gap: 20px;
+    padding: 28px 24px 24px;
+  }
+  .spacer {
+    flex: 1 0 0;
+    max-width: 15%;
+  }
+  .content {
+    flex: 1 0 0;
+    gap: 36px;
+  }
+  .overview {
+    gap: 32px;
+  }
+  .block {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 809px) {
+  .section {
+    padding: 64px 0;
+  }
+  .wrapper {
+    flex-direction: column-reverse;
+    gap: 48px;
+  }
+  .sidebar,
+  .content {
+    flex: none;
+    width: 100%;
+    max-width: none;
+  }
+  .spacer {
+    display: none;
+  }
+  .sidebar {
+    gap: 20px;
+  }
+  .links {
+    gap: 16px;
+    padding: 24px 20px 20px;
+  }
+  .links::after {
+    border-top-width: 4px;
+  }
+  .content {
+    gap: 24px;
+  }
+  .overview {
+    gap: 20px;
+  }
+  .block {
+    gap: 16px;
+  }
+  .steps {
+    font-size: 16px;
+  }
+}
+
+/* Sidebar stays in view while the content scrolls (side-by-side layouts only); top is set by StickyAside */
+@media (min-width: 810px) {
+  .sidebar {
+    position: sticky;
+    top: 120px;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,60 @@
+.section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 132px 0;
+  background: var(--c-white);
+  overflow: hidden;
+}
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 120px;
+  padding: 0 var(--page-pad);
+}
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr); /* equal rows (tallest card), like the original */
+  gap: 32px;
+}
+
+@media (max-width: 1279px) {
+  .section {
+    padding: 96px 0;
+  }
+  .wrapper {
+    gap: 80px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+}
+
+@media (max-width: 809px) {
+  .section {
+    padding: 64px 0;
+  }
+  .wrapper {
+    gap: 56px;
+  }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+}
+
+/* every card fills its (equal-height) grid row so the bottoms line up */
+.cell {
+  display: flex;
+}
+.cell > * {
+  flex: 1;
+}

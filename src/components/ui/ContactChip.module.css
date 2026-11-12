@@ -1,0 +1,71 @@
+.chip {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: clip;
+  flex: none;
+}
+.icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.label {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+/* Style 1 – boxed icon on light backgrounds */
+.boxed {
+  gap: 10px;
+  color: var(--c-dark);
+}
+.boxed .icon {
+  width: 52px;
+  height: 52px;
+  padding: 14px;
+  background: var(--c-light);
+  border-radius: 2px;
+  color: var(--c-accent);
+}
+
+/* Style 2 – plain white icon on dark backgrounds */
+.plain {
+  gap: 8px;
+  color: var(--c-white);
+}
+.plain .icon {
+  width: 24px;
+  height: 24px;
+  color: var(--c-white);
+}
+
+@media (max-width: 1279px) {
+  .compactTablet.boxed .icon {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+}
+@media (max-width: 809px) {
+  .compactPhone.boxed .icon {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+}
+
+/* Style 2 on light backgrounds (attorney profile) – accent icon, dark text */
+.plainDark {
+  gap: 8px;
+  color: var(--c-dark);
+}
+.plainDark .icon {
+  width: 24px;
+  height: 24px;
+  color: var(--c-accent);
+}

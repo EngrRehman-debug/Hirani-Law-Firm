@@ -1,0 +1,293 @@
+/* Hero ------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 198px 0 96px;
+  background: var(--c-white);
+}
+.heroWrapper {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 var(--page-pad);
+}
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+.role {
+  color: var(--c-accent);
+}
+.name {
+  color: var(--c-heading);
+}
+
+/* Profile (bottom padding includes the 10px flex gap of an empty trailing node in the original) ---------------------------------------------------------------- */
+.profile {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 142px;
+  background: var(--c-white);
+  overflow: clip;
+}
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 var(--page-pad);
+  overflow: clip;
+}
+.image {
+  position: sticky;
+  top: 120px;
+  z-index: 1;
+  /* original: fixed-width photo (≤40%), spacer grows up to 10%, content takes the rest */
+  flex: none;
+  width: 480px;
+  max-width: 40%;
+  min-width: 0;
+}
+.spacer {
+  flex: 1 0 0;
+  max-width: 10%;
+  align-self: stretch;
+}
+.content {
+  position: relative;
+  z-index: 1;
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+.details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.intro {
+  color: var(--c-black);
+}
+.text {
+  color: var(--c-body);
+}
+
+.contacts {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+  overflow: clip;
+}
+.contactList {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+.socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0 0;
+  margin: 0;
+  list-style: none;
+}
+.social {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 2px;
+  background: var(--c-dark);
+  color: var(--c-white);
+  transition: background-color 0.3s ease;
+}
+.social::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--c-dark);
+  border-radius: inherit;
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+@media (hover: hover) {
+  .social:hover {
+    background: var(--c-accent);
+  }
+  .social:hover::after {
+    border-color: var(--c-accent);
+  }
+}
+
+.block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.block > * {
+  width: 100%;
+}
+.blockTitle {
+  color: var(--c-heading);
+}
+
+.awards {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+.award {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: 16px 24px;
+  background: var(--c-light);
+}
+.awardTitle {
+  flex: 1 0 0;
+  color: var(--c-heading);
+}
+.awardYear {
+  flex: none;
+  text-align: right;
+  color: var(--c-accent);
+}
+
+.form {
+  width: 100%;
+}
+
+.pager {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.pagerSpacer {
+  flex: 1 0 0;
+  height: 18px;
+}
+.pagerItem {
+  flex: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.pagerLink {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--c-black);
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .pagerLink:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Tablet ------------------------------------------------------------------ */
+@media (max-width: 1279px) {
+  .hero {
+    padding: 132px 0 56px;
+  }
+  .heading {
+    gap: 8px;
+  }
+  .profile {
+    padding: 0 0 106px;
+  }
+  .image {
+    width: 328px;
+  }
+  .spacer {
+    max-width: 6%;
+  }
+  .content {
+    gap: 36px;
+  }
+  .contacts {
+    gap: 16px;
+  }
+  .block {
+    gap: 20px;
+  }
+}
+
+/* Phone ------------------------------------------------------------------- */
+@media (max-width: 809px) {
+  .hero {
+    padding: 116px 0 40px;
+  }
+  .heading {
+    gap: 6px;
+  }
+  .profile {
+    padding: 0 0 74px;
+  }
+  .wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+  .image {
+    position: relative;
+    top: auto;
+    flex: none;
+    width: 100%;
+    max-width: none;
+  }
+  .spacer {
+    display: none;
+  }
+  .content {
+    flex: none;
+    width: 100%;
+    gap: 24px;
+  }
+  .contacts {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contactList {
+    flex: none;
+  }
+  .socials {
+    gap: 4px;
+    padding: 0;
+  }
+  .block {
+    gap: 16px;
+  }
+}

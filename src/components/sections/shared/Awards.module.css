@@ -1,0 +1,111 @@
+.awards {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.row {
+  position: relative;
+  width: 100%;
+  padding: 16px 0;
+  background-color: rgba(136, 134, 90, 0);
+  transition: background-color var(--spring-hover-dur) var(--spring-hover);
+}
+.row::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom: 1px solid var(--c-line);
+  pointer-events: none;
+}
+.content {
+  min-height: 24px;
+  padding: 0;
+  transition: padding var(--spring-hover-dur) var(--spring-hover);
+  /* rows are 56px on desktop, 47/45px below */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: clip;
+}
+.number {
+  flex: 1 0 0;
+}
+.index {
+  color: var(--c-accent);
+  transition: color var(--spring-hover-dur) var(--spring-hover);
+}
+.text {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: clip;
+}
+.title {
+  flex: 1 0 0;
+  color: var(--c-heading);
+  transition: color var(--spring-hover-dur) var(--spring-hover);
+}
+.year {
+  flex: none;
+  width: 72px;
+  text-align: right;
+  color: var(--c-body);
+  transition: color var(--spring-hover-dur) var(--spring-hover);
+}
+
+/* Hover (desktop variant only: accent fill, content inset 16px, light text; spring ~0.4s) */
+@media (hover: hover) and (min-width: 1280px) {
+  .row:hover {
+    background-color: var(--c-accent);
+  }
+  .row:hover .content {
+    padding: 0 16px;
+  }
+  .row:hover .index {
+    color: var(--c-gray);
+  }
+  .row:hover .title {
+    color: var(--c-white);
+  }
+  .row:hover .year {
+    color: var(--c-light);
+  }
+}
+
+@media (max-width: 1279px) {
+  .row {
+    padding: 12px 0;
+  }
+  .content {
+    min-height: 0;
+  }
+  .number {
+    flex: none;
+    width: 10%;
+  }
+  .text {
+    flex: 1 0 0;
+  }
+  .year {
+    width: 20%;
+  }
+}
+
+@media (max-width: 809px) {
+  .index,
+  .year {
+    font-size: 14px;
+  }
+  .title {
+    font-size: 16px;
+  }
+}

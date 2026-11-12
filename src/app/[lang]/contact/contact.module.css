@@ -1,0 +1,133 @@
+/* Hero ------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 198px 0 96px;
+  background: var(--c-white);
+}
+.heroWrapper {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 var(--page-pad);
+}
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+.title {
+  color: var(--c-heading);
+}
+
+/* Consultation + FAQs ------------------------------------------------------ */
+.consultation {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 132px;
+  background: var(--c-white);
+}
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 120px;
+  padding: 0 var(--page-pad);
+}
+.contacts {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.textCta {
+  flex: 340 0 0;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  overflow: clip;
+}
+.text {
+  color: var(--c-body);
+}
+.spacer {
+  flex: 340 0 0;
+  align-self: stretch;
+}
+.form {
+  flex: 680 0 0;
+  min-width: 0;
+}
+
+@media (max-width: 1279px) {
+  .hero {
+    padding: 148px 0 72px;
+  }
+  .consultation {
+    padding: 0 0 96px;
+  }
+  .wrapper {
+    gap: 80px;
+  }
+  .textCta {
+    flex: 384 0 0;
+  }
+  .spacer {
+    flex: 96 0 0;
+  }
+  .form {
+    flex: 480 0 0;
+  }
+}
+
+@media (max-width: 809px) {
+  .hero {
+    padding: 124px 0 48px;
+  }
+  .label {
+    display: none;
+  }
+  .consultation {
+    padding: 0 0 64px;
+  }
+  .wrapper {
+    gap: 56px;
+  }
+  .contacts {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .textCta {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+    gap: 32px;
+  }
+  .spacer {
+    display: none;
+  }
+  .form {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* founder card, intro and office details need breathing room now that the column holds more */
+.textCta {
+  justify-content: flex-start;
+  gap: 32px;
+}

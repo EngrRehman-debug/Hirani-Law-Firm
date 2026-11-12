@@ -1,0 +1,40 @@
+.label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  overflow: clip;
+}
+
+.right {
+  justify-content: flex-end;
+}
+.right .text {
+  text-align: right;
+}
+
+.divider {
+  flex: none;
+  width: 32px;
+  height: 2px;
+}
+
+.text {
+  flex: 1 0 0;
+}
+
+.accent .divider {
+  background-color: var(--c-accent);
+}
+.accent .text {
+  color: var(--c-accent);
+}
+
+.light .divider {
+  background-color: var(--c-white);
+}
+.light .text {
+  color: var(--c-gray);
+}
+

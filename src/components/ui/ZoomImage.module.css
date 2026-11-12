@@ -1,0 +1,13 @@
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.5 / 1;
+  overflow: clip;
+}
+.inner {
+  position: absolute;
+  inset: 0;
+}
+.img {
+  object-fit: cover;
+}

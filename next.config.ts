@@ -1,3 +1,10 @@
 import type { NextConfig } from "next";
-const config: NextConfig = { poweredByHeader: false };
-export default config;
+
+const nextConfig: NextConfig = {
+  images: {
+    // Assets are already optimised (webp) – serve them as-is for pixel parity with the original.
+    unoptimized: true,
+  },
+};
+
+export default nextConfig;

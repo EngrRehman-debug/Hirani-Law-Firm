@@ -1,0 +1,170 @@
+.section {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 132px;
+  background: var(--c-white);
+  overflow: clip;
+}
+.wrapper {
+  max-width: 1440px; /* content is capped & centred on wide screens */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  padding: 0 var(--page-pad);
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.label {
+  flex: 1 0 0;
+}
+.heading {
+  flex: 1 0 0;
+  color: var(--c-heading);
+}
+
+.body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.columns {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  overflow: clip;
+}
+.col {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.col > * {
+  width: 100%;
+}
+.sticky {
+  position: sticky;
+  top: 200px;
+  z-index: 1;
+}
+.space {
+  width: 50%;
+  height: 900px;
+}
+
+.grid {
+  display: none;
+}
+
+.ctaRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.ctaSpacer {
+  flex: 1 0 0;
+  height: 100px;
+}
+.cta {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.ctaText {
+  max-width: 640px;
+  color: var(--c-body);
+}
+.mobileText {
+  display: none;
+}
+.ctaButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+@media (max-width: 1279px) {
+  .section {
+    padding: 0 0 96px;
+  }
+  .wrapper {
+    gap: 48px;
+  }
+  .body {
+    gap: 32px;
+  }
+  .columns {
+    display: none;
+  }
+  .grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+  .ctaSpacer {
+    display: none;
+  }
+  .desktopText {
+    display: none;
+  }
+  .mobileText {
+    display: inline;
+  }
+}
+
+@media (max-width: 809px) {
+  .section {
+    padding: 0 var(--page-pad) 64px;
+  }
+  .wrapper {
+    gap: 40px;
+    padding: 0;
+  }
+  .title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .label,
+  .heading {
+    flex: none;
+    width: 100%;
+  }
+  .body {
+    gap: 24px;
+  }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .cta {
+    gap: 16px;
+  }
+  .ctaButtons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

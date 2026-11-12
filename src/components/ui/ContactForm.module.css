@@ -1,0 +1,218 @@
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 48px;
+  background: var(--c-white);
+  box-shadow: 0 4px 22px rgba(31, 31, 21, 0.12);
+  overflow: hidden;
+}
+.bordered {
+  position: relative;
+}
+.bordered::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--c-line);
+  pointer-events: none;
+}
+.bordered .label {
+  color: var(--c-body);
+}
+.title {
+  width: 100%;
+  color: var(--c-heading);
+}
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  overflow: clip;
+}
+.field {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.label {
+  color: var(--c-heading);
+}
+.inputWrap,
+.textareaWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.inputWrap {
+  padding: 16px 16px 16px 0;
+}
+.inputWrap::after,
+.textareaWrap::after,
+.selectField::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom: 1px solid var(--c-line);
+  pointer-events: none;
+  transition: border-color 0.2s ease;
+}
+.inputWrap:focus-within::after,
+.textareaWrap:focus-within::after,
+.selectField:focus-within::after {
+  border-bottom-color: var(--c-accent);
+}
+.input,
+.textarea,
+.select {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--c-dark);
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.input {
+  height: 18px;
+  padding: 0;
+}
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(48, 47, 32, 0.4);
+}
+
+.selectField {
+  position: relative;
+  width: 100%;
+  display: flex;
+  padding: 0 16px 0 0;
+  overflow: hidden;
+}
+.select {
+  height: 50px;
+  padding: 16px 16px 16px 0;
+  appearance: none;
+  cursor: pointer;
+}
+.select:invalid {
+  color: rgba(0, 0, 0, 0.4);
+}
+.chevron {
+  position: absolute;
+  right: -2px;
+  top: 8px;
+  color: var(--c-dark);
+  pointer-events: none;
+}
+
+.messageField {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.textarea {
+  height: 124px;
+  padding: 16px 16px 16px 0;
+  resize: none;
+  font-family: inherit;
+}
+
+.bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  overflow: clip;
+}
+.checkbox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.check {
+  appearance: none;
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border: 1px solid var(--c-dark);
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+  top: 1px;
+}
+.submit {
+  padding: 18px 24px !important;
+}
+.check:checked {
+  background: var(--c-dark);
+}
+.check:checked::after {
+  content: "";
+  position: absolute;
+  left: 4.5px;
+  top: 1.5px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--c-white);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+.checkText {
+  color: var(--c-body);
+}
+
+@media (max-width: 1279px) {
+  .card {
+    gap: 24px;
+    padding: 32px;
+  }
+  .row {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 809px) {
+  .card {
+    gap: 20px;
+    padding: 24px;
+  }
+  .form {
+    gap: 16px;
+  }
+  .bottom {
+    gap: 20px;
+  }
+  .checkbox {
+    height: 16px;
+  }
+  .check {
+    top: 0;
+  }
+  .row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .field {
+    flex: none;
+    width: 100%;
+  }
+}

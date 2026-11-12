@@ -1,0 +1,128 @@
+/* Hero ------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 198px 0 96px;
+  background: var(--c-white);
+  overflow: hidden;
+}
+.heroWrapper {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 var(--page-pad);
+}
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.label,
+.title {
+  flex: 1 0 0;
+  min-width: 0;
+}
+.title {
+  color: var(--c-black);
+}
+
+/* Body ------------------------------------------------------------------- */
+.body {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 132px;
+  background: var(--c-white);
+}
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 var(--page-pad);
+}
+.spacer {
+  flex: 1 0 0;
+  align-self: stretch;
+}
+.richText {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Framer rich-text spacing: paragraphs 20px, headings 24px, lists 12px after a paragraph */
+.p {
+  color: var(--c-body);
+}
+.richText > * + .p {
+  margin-top: 20px;
+}
+.richText > * + .h {
+  margin-top: 24px;
+}
+.richText > * + .list {
+  margin-top: 12px;
+}
+.h {
+  color: var(--c-black);
+}
+.h strong {
+  font-weight: 400;
+}
+.list {
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+.li {
+  position: relative;
+  padding-left: 1.368em;
+  color: var(--c-body);
+}
+.li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@media (max-width: 1279px) {
+  .hero {
+    padding: 132px 0 76px;
+  }
+  .body {
+    padding: 0 0 96px;
+  }
+}
+
+@media (max-width: 809px) {
+  .hero {
+    padding: 116px 0 40px;
+  }
+  .heading {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .label,
+  .title {
+    flex: none;
+    width: 100%;
+  }
+  .body {
+    padding: 0 0 64px;
+  }
+  .spacer {
+    display: none;
+  }
+}

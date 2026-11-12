@@ -1,0 +1,87 @@
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  background: var(--c-white);
+  box-shadow: 0 4px 22px rgba(31, 31, 21, 0.1);
+  overflow: clip;
+}
+.imageWrap {
+  width: 100%;
+  overflow: hidden;
+}
+.image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.5 / 1;
+  transition: transform var(--spring-card-dur) var(--spring-card);
+}
+.img {
+  object-fit: cover;
+}
+@media (hover: hover) {
+  .card:hover .image {
+    transform: scale(1.05);
+  }
+}
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 32px 32px;
+  background: var(--c-white);
+  border-radius: 2px;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.tags {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+.tag {
+  display: block;
+  padding: 4px 6px;
+  line-height: 15px;
+  background: var(--c-accent);
+  color: var(--c-white);
+}
+.verdict {
+  background: var(--c-red);
+}
+.heading {
+  color: var(--c-dark);
+}
+
+/* compact variant also used on tablet in "You also might like" */
+@media (max-width: 1279px) {
+  .compactTablet {
+    gap: 24px;
+  }
+  .compactTablet .content {
+    padding: 0 24px 24px;
+  }
+  .compactTablet .title {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 809px) {
+  .card {
+    gap: 24px;
+  }
+  .content {
+    padding: 0 24px 24px;
+  }
+  .title {
+    gap: 12px;
+  }
+  .tag {
+    font-size: 10px;
+  }
+}

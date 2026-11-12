@@ -1,0 +1,180 @@
+.link {
+  display: flex;
+  width: 100%;
+}
+.card {
+  --card-ease: cubic-bezier(0.44, 0, 0.56, 1);
+  position: relative;
+  width: 100%;
+  aspect-ratio: 0.793388 / 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.figure {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+}
+.img {
+  object-fit: cover;
+}
+.gradient {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(18, 18, 18, 0) 0%, var(--c-ink) 100%);
+  mix-blend-mode: darken;
+}
+
+.plus {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  border-radius: 2px;
+  background: var(--c-white);
+  overflow: hidden;
+}
+.plusH,
+.plusV {
+  position: absolute;
+  background: var(--c-black);
+}
+.plusH {
+  top: 17.5px;
+  bottom: 17.5px;
+  left: 11px;
+  right: 11px;
+}
+.plusV {
+  left: 17.5px;
+  right: 17.5px;
+  top: 11px;
+  bottom: 11px;
+}
+
+.nameRole {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: opacity var(--spring-card-dur) var(--spring-card);
+}
+.name {
+  color: var(--c-white);
+}
+.role {
+  color: var(--c-gray);
+}
+
+.panel {
+  position: absolute;
+  inset: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32px;
+  background: var(--c-white);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: 100% 0%;
+  transition:
+    transform var(--spring-card-dur) var(--spring-card),
+    opacity var(--spring-card-dur) var(--spring-card);
+}
+.panelHead {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.panelName {
+  color: var(--c-heading);
+}
+.panelRole,
+.panelSpeech {
+  color: var(--c-body);
+}
+
+/* hover panel: desktop card only (the tablet/phone variants have no hover state) */
+@media (hover: hover) and (min-width: 1280px) {
+  .card:not(.tablet):hover .panel {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .card:not(.tablet):hover .nameRole,
+  .card:not(.tablet):hover .plus {
+    opacity: 0;
+  }
+}
+
+/* Tablet / phone card (no hover panel, + badge kept, bigger padding) */
+.tablet .nameRole {
+  left: 32px;
+  bottom: 32px;
+}
+.tablet .name {
+  font-size: 22px;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+}
+/* tablet/phone card: no hover panel, the + badge stays (original "Tablet" variant) */
+.tablet .panel {
+  display: none;
+}
+
+@media (max-width: 809px) {
+  .tablet .name {
+    font-size: 18px;
+  }
+  .tablet .role {
+    font-size: 14px;
+  }
+}
+
+/* "responsive": desktop card ≥1280px, tablet card below */
+@media (max-width: 1279px) {
+  .responsive .nameRole {
+    left: 32px;
+    bottom: 32px;
+  }
+  .responsive .name {
+    font-size: 22px;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+  }
+  .responsive .panel {
+    display: none;
+  }
+}
+@media (max-width: 809px) {
+  .responsive .name {
+    font-size: 18px;
+  }
+  .responsive .role {
+    font-size: 14px;
+  }
+}
+/* Attorneys page phone card ("Phone" variant): shorter ratio, + badge kept, 24px insets */
+@media (max-width: 809px) {
+  .responsive {
+    aspect-ratio: 0.914286 / 1;
+  }
+  .responsive .plus {
+    display: block;
+  }
+  .responsive .nameRole {
+    left: 24px;
+    bottom: 24px;
+  }
+}
